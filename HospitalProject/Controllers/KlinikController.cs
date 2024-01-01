@@ -29,7 +29,7 @@ namespace HospitalProject.Controllers
             return View(result);
         }
 
-       
+        [HttpPost("ekle")]
         public async Task<IActionResult> KlinikEkle([FromForm]Klinik klinik)
         {
             var added = _context.Entry(klinik);
