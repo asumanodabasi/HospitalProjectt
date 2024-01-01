@@ -108,7 +108,7 @@ namespace HospitalProject.Controllers
 
 
         [HttpGet("GetRandevu")]
-        public IActionResult RandevuListele(Randevu r)
+        public IActionResult RandevuListele()
         {
             var result = _context.Randevus.ToList();
             return View(result);
