@@ -41,7 +41,7 @@ namespace HospitalProject.Data.Migrations
 
                     b.HasIndex("HospitalId");
 
-                    b.ToTable("Cities");
+                    b.ToTable("Cities", (string)null);
                 });
 
             modelBuilder.Entity("HospitalProject.Models.County", b =>
@@ -63,7 +63,7 @@ namespace HospitalProject.Data.Migrations
 
                     b.HasIndex("CityId");
 
-                    b.ToTable("Counties");
+                    b.ToTable("Counties", (string)null);
                 });
 
             modelBuilder.Entity("HospitalProject.Models.Doctor", b =>
@@ -95,7 +95,7 @@ namespace HospitalProject.Data.Migrations
 
                     b.HasIndex("KlinikId");
 
-                    b.ToTable("Doctors");
+                    b.ToTable("Doctors", (string)null);
                 });
 
             modelBuilder.Entity("HospitalProject.Models.Hospital", b =>
@@ -123,7 +123,7 @@ namespace HospitalProject.Data.Migrations
 
                     b.HasIndex("CountyId");
 
-                    b.ToTable("Hospitals");
+                    b.ToTable("Hospitals", (string)null);
                 });
 
             modelBuilder.Entity("HospitalProject.Models.HospitalKlinik", b =>
@@ -138,7 +138,7 @@ namespace HospitalProject.Data.Migrations
 
                     b.HasIndex("KliniksId");
 
-                    b.ToTable("HospitalKliniks");
+                    b.ToTable("HospitalKliniks", (string)null);
                 });
 
             modelBuilder.Entity("HospitalProject.Models.Klinik", b =>
@@ -163,7 +163,7 @@ namespace HospitalProject.Data.Migrations
 
                     b.HasIndex("HospitalId");
 
-                    b.ToTable("Kliniks");
+                    b.ToTable("Kliniks", (string)null);
                 });
 
             modelBuilder.Entity("HospitalProject.Models.Randevu", b =>
@@ -177,7 +177,7 @@ namespace HospitalProject.Data.Migrations
                     b.Property<int>("CountyId")
                         .HasColumnType("int");
 
-                    b.Property<int>("DoctorId")
+                    b.Property<int>("DoktorId")
                         .HasColumnType("int");
 
                     b.Property<int>("HastaneId")
@@ -200,11 +200,11 @@ namespace HospitalProject.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DoctorId");
+                    b.HasIndex("DoktorId");
 
                     b.HasIndex("WorkingHourId");
 
-                    b.ToTable("Randevus");
+                    b.ToTable("Randevus", (string)null);
                 });
 
             modelBuilder.Entity("HospitalProject.Models.User", b =>
@@ -297,7 +297,7 @@ namespace HospitalProject.Data.Migrations
 
                     b.HasIndex("DoctorId");
 
-                    b.ToTable("WorkHours");
+                    b.ToTable("WorkHours", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -513,7 +513,7 @@ namespace HospitalProject.Data.Migrations
                 {
                     b.HasOne("HospitalProject.Models.Doctor", "Doctor")
                         .WithMany("Randevus")
-                        .HasForeignKey("DoctorId")
+                        .HasForeignKey("DoktorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

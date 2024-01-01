@@ -1,8 +1,6 @@
 ﻿@model IEnumerable<HospitalProject.Models.Klinik>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+
 <table class="table">
     <thead>
         <tr>
@@ -25,8 +23,8 @@
                 @Html.DisplayFor(modelItem => item.DoctorId)
             </td>
             <td>
-                <a asp-action="KlinikGuncelle" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="KlinikEkle" asp-route-id="@item.Id">Add</a> 
+                <a asp-action="Guncel" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Index" asp-route-id="@item.Id">Add</a> 
                 
             </td>
         </tr>

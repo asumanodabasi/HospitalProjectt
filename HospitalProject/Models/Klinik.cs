@@ -16,10 +16,10 @@ namespace HospitalProject.Models
         public int DoctorId { get; set; }
         
         [NotMapped]
-        public List<HospitalKlinik> HospitalKliniks { get; set; }
+        public List<HospitalKlinik>? HospitalKliniks { get; set; }
         [NotMapped]
-        public List<Hospital> Hospitals { get; set; }
+        public List<Hospital>? Hospitals { get; set; }
         [NotMapped]
-        public List<Doctor> Doctors { get; set; }
+        public List<Doctor>? Doctors { get; set; }
     }
 }

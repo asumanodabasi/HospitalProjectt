@@ -17,6 +17,18 @@ namespace HospitalProject.Controllers
             _context = context;
         }
 
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        [HttpGet("guncel")]
+        public IActionResult Guncel()
+        {
+            return View();
+        }
+
+        [HttpGet("hata")]
         public IActionResult Hata()
         {
             return View();
@@ -30,9 +42,9 @@ namespace HospitalProject.Controllers
         }
 
         [HttpPost("ekle")]
-        public async Task<IActionResult> KlinikEkle([FromForm]Klinik klinik)
+        public async Task<IActionResult> KlinikEkle([FromForm] Klinik k)
         {
-            var added = _context.Entry(klinik);
+            var added = _context.Entry(k);
             added.State = EntityState.Added;
             await _context.SaveChangesAsync();
             return RedirectToAction("GetKlinik");
@@ -40,14 +52,15 @@ namespace HospitalProject.Controllers
         }
 
 
-        public async Task<ActionResult> KlinikGuncelle(Klinik k ,int? id)
+        [HttpPut("guncelle")]
+        public async Task<ActionResult> KlinikGuncelle(Klinik k, int? id)
         {
-            var result=_context.Kliniks.FirstOrDefault(x => x.Id == id);
-            if(result != null)
+            var result = _context.Kliniks.FirstOrDefault(x => x.Id == id);
+            if (result != null)
             {
                 return RedirectToAction("Hata");
             }
-            var updated= _context.Entry(k);
+            var updated = _context.Entry(k);
             updated.State = EntityState.Modified;
             await _context.SaveChangesAsync();
             return RedirectToAction("GetKliink");
