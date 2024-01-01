@@ -174,29 +174,26 @@ namespace HospitalProject.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("CountyId")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("CountyId")
+                        .HasColumnType("int");
 
                     b.Property<int>("DoctorId")
                         .HasColumnType("int");
 
-                    b.Property<string>("DoktorId")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("HastaneId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("HastaneId")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("IlId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("IlId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("KlinikId")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("KlinikId")
+                        .HasColumnType("int");
 
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("WorkHourId")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("WorkHourId")
+                        .HasColumnType("int");
 
                     b.Property<int?>("WorkingHourId")
                         .HasColumnType("int");

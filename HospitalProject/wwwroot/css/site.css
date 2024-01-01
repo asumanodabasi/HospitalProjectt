@@ -22,7 +22,27 @@ body {
     
 }
 
-#carousel-inner{
-    margin:100px 100px;
-    margin:auto;
+.slider {
+    margin:50px 100px 100px;
+    height: fit-content;
+    width: fit-content;
+}
+
+.cart {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.card {
+    width: 200px;
+    padding: 20px;
+    margin: 10px;
+    border: 1px solid #ccc;
+}
+
+.submit {
+    margin: 8px 5px 15px;
+    border-bottom: 2px solid red;
+    border-radius: 2px
 }

@@ -29,6 +29,27 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+
+
+builder.Services.AddLocalization(options => options.ResourcesPath = "Resource");
+////.Services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix).AddDataAnnotationsLocalization();
+
+builder.Services.AddControllersWithViews()
+    .AddViewLocalization
+    (LanguageViewLocationExpanderFormat.SubFolder)
+    .AddDataAnnotationsLocalization();
+
+
+builder.Services.Configure<RequestLocalizationOptions>(options =>
+{
+    var supportedCultures = new[] { "en-US", "tr-TR" };
+    options.SetDefaultCulture(supportedCultures[0])
+        .AddSupportedCultures(supportedCultures)
+        .AddSupportedUICultures(supportedCultures);
+});
+
+builder.Services.AddScoped<Klinik>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -46,6 +67,13 @@ else
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+var supportedCultures = new[] { "en-US", "tr-TR" };
+var localizationOptions = new RequestLocalizationOptions()
+    .SetDefaultCulture(supportedCultures[0])
+    .AddSupportedCultures(supportedCultures)
+    .AddSupportedUICultures(supportedCultures);
+app.UseRequestLocalization(localizationOptions);
+
 app.UseRouting();
 
 app.UseAuthentication();
@@ -58,21 +86,6 @@ app.MapControllerRoute(
 app.MapRazorPages();
 
 
-//builder.Services.AddLocalization(options => options.ResourcesPath = "Resource");
-////.Services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix).AddDataAnnotationsLocalization();
-
-//builder.Services.AddControllersWithViews()
-//    .AddViewLocalization
-//    (LanguageViewLocationExpanderFormat.SubFolder)
-//    .AddDataAnnotationsLocalization();
-
-
-//builder.Services.Configure<RequestLocalizationOptions>(options => {
-//    var supportedCultures = new[] { "en-US", "fr", "de" };
-//    options.SetDefaultCulture(supportedCultures[0])
-//        .AddSupportedCultures(supportedCultures)
-//        .AddSupportedUICultures(supportedCultures);
-//});
 
 
 

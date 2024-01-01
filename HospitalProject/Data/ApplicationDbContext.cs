@@ -30,7 +30,7 @@ namespace HospitalProject.Data
             modelBuilder.Entity<HospitalKlinik>().HasOne(h => h.Hospital).WithMany(x => x.HospitalKliniks).HasForeignKey(x=>x.HospitalsId);
             modelBuilder.Entity<HospitalKlinik>().HasOne(k => k.Klinik).WithMany(x => x.HospitalKliniks).HasForeignKey(x => x.KliniksId);
 
-            //modelBuilder.Entity<Randevu>().HasOne(r => r.Doctor).WithMany(x => x.Randevus).HasForeignKey(x => x.DoktorId);
+           modelBuilder.Entity<Randevu>().HasOne(r => r.Doctor).WithMany(x => x.Randevus).HasForeignKey(x => x.DoctorId);
             //modelBuilder.Entity<Randevu>().HasOne(x => x.User).WithMany(x => x.Randevus).HasForeignKey(x => x.UserId);
             
            

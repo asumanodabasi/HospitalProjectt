@@ -117,7 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="LB_Welcome" xml:space="preserve">
-    <value>Merhaba Dünya</value>
+  <data name="Appointment" xml:space="preserve">
+    <value>Randevu Al</value>
+  </data>
+  <data name="Appointment List" xml:space="preserve">
+    <value>Randevuları Listele</value>
+  </data>
+  <data name="Doctor Add" xml:space="preserve">
+    <value>Doktor Ekle</value>
+  </data>
+  <data name="Doctor Delete" xml:space="preserve">
+    <value>Doktor Sil</value>
+  </data>
+  <data name="Doctor Edit" xml:space="preserve">
+    <value>Doktor Güncelle</value>
+  </data>
+  <data name="Doctor List" xml:space="preserve">
+    <value>Doktorları Listele</value>
+  </data>
+  <data name="Home Page" xml:space="preserve">
+    <value>Ana Sayfa</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Giriş Yap</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Kayıt Ol</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Hoş Geldiniz</value>
   </data>
 </root>

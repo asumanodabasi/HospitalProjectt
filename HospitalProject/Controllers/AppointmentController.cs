@@ -17,10 +17,7 @@ namespace HospitalProject.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
-        {
-            return RedirectToAction("RandevuEkle");
-        }
+        
 
         [HttpGet("Randevu")]
         public async Task<ActionResult> Randevu()
@@ -76,43 +73,45 @@ namespace HospitalProject.Controllers
         }
 
         [HttpPost("RandevuEkle")]
-        public async Task<ActionResult> RandevuEkle([FromForm] Randevu randevu)
+        public async Task<ActionResult> RandevuEkle([FromBody] RandevuVer randevu)
         {
-            var result = _context.Randevus.Where(x => x.Id == randevu.Id).ToList();
+          
+
+            var result =await _context.Randevus.FirstOrDefaultAsync(x => x.WorkHourId == randevu.WorkHourId);
             
-            if (result.Count==0)
+            
+            if (result is null)
             {
                 var ran = new Randevu
                 {
-
-                    Id = randevu.Id,
                     IlId = randevu.IlId,
                     CountyId = randevu.CountyId,
                     HastaneId = randevu.HastaneId,
                     KlinikId = randevu.KlinikId,
-                    DoktorId = randevu.DoktorId,
+                    DoctorId = randevu.DoctorId,
                     WorkHourId = randevu.WorkHourId
                 };
 
 
-                _context.Randevus.Add(randevu);
+                _context.Randevus.Add(ran);
                 await _context.SaveChangesAsync();
                 TempData["SuccessMessage"] = "Randevu başarıyla kaydedildi.";
-                return Json(ran);
+                return RedirectToAction("Randevu");
             }
 
             else
             {
                 TempData["ErrorMessage"] = "Randevu alamazsınız.";
-                return RedirectToAction("ExistRandevu");
+                return RedirectToAction("Randevu");
             }
         }
 
-     
-        public IActionResult RandevuVer([FromForm] Randevu r)
-        {
 
-            return Json(r);
+        [HttpGet("GetRandevu")]
+        public IActionResult RandevuListele(Randevu r)
+        {
+            var result = _context.Randevus.ToList();
+            return View(result);
         }
     }
 }

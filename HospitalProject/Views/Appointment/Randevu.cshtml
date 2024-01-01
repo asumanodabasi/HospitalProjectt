@@ -26,7 +26,7 @@
 <body>
     <div>
 
-        <form  asp-action="RandevuEkle" method="post">
+        @* <form  asp-action="RandevuEkle" method="post"> *@
     <label for="il">İl:</label>
     <select id="il" name="il" class="form-select" aria-label="Default select example">
         <option value="">Lütfen İl Seçiniz</option>
@@ -73,8 +73,8 @@
         <option value="">Lütfen Saat Seçiniz</option>
     </select>
 
-    <button id="randevuAl" class="btn" type="submit">Randevu Al</button>
-    </form>
+    <button id="randevuAl" class="submit" type="submit">Randevu Al</button>
+    @* </form> *@
            
     
     @if (TempData["SuccessMessage"] != null)

@@ -57,10 +57,7 @@ namespace HospitalProject.Data.Migrations
                 table: "AspNetUsers",
                 column: "RandevuId");
 
-            migrationBuilder.CreateIndex(
-                name: "IX_Randevus_DoktorId",
-                table: "Randevus",
-                column: "DoktorId");
+       
 
             //migrationBuilder.AddForeignKey(
             //    name: "FK_AspNetUsers_Randevus_RandevuId",

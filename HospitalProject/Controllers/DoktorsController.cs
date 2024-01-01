@@ -29,6 +29,8 @@ namespace HospitalProject.Controllers
             return View(result);
         }
 
+
+
         [Authorize(Roles ="Admin")]
         [HttpPost]
         public async Task<IActionResult> DoktorAdd([FromForm]Doctor doctor) 
